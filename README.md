@@ -1,7 +1,19 @@
 # AI Resume ↔ JD Matcher
 
+![React](https://img.shields.io/badge/React-19-blue?logo=react)
+![Node.js](https://img.shields.io/badge/Node.js-Express-green?logo=node.js)
+![MongoDB](https://img.shields.io/badge/MongoDB-Database-green?logo=mongodb)
+![Groq](https://img.shields.io/badge/LLM-Groq-orange)
+![License](https://img.shields.io/badge/License-MIT-blue)
+ 
 An AI-powered full-stack web application that analyzes how well a resume matches a given job description. Upload a PDF resume and paste a job description to receive an instant ATS-style match score, a list of missing keywords, and personalized suggestions for improvement — powered by the Groq LLM API.
+ 
+---
 
+## 🌐 Live Demo
+ 
+Coming Soon...
+ 
 ---
 
 ## 🚀 Features
