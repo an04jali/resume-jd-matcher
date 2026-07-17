@@ -57,135 +57,137 @@ function Dashboard() {
   };
 
   return (
+    <>
+      <Navbar />
 
-    <div className="min-h-screen bg-slate-100 p-10">
+      <div className="min-h-screen bg-slate-100 p-10">
 
-      <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8">
+        <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8">
 
-        <h1 className="text-4xl font-bold text-center mb-8">
-          AI Resume ↔ JD Matcher
-        </h1>
+          <h1 className="text-4xl font-bold text-center mb-8">
+            AI Resume ↔ JD Matcher
+          </h1>
 
-        <p className="text-gray-600 text-center mb-8">
+          <p className="text-gray-600 text-center mb-8">
 
-            Upload your resume and paste a Job Description to get an AI-powered ATS analysis.
+              Upload your resume and paste a Job Description to get an AI-powered ATS analysis.
 
-        </p>
+          </p>
 
-        <label className="font-semibold">
-          Upload Resume
-        </label>
+          <label className="font-semibold">
+            Upload Resume
+          </label>
 
-        <input
-          type="file"
-          accept=".pdf"
-          onChange={(e) => setFile(e.target.files[0])}
-          className="border w-full p-3 rounded mt-2"
-        />
+          <input
+            type="file"
+            accept=".pdf"
+            onChange={(e) => setFile(e.target.files[0])}
+            className="border w-full p-3 rounded mt-2"
+          />
 
-        {file && (
-            <p className="text-sm text-green-600 mt-2">
-                Selected File: {file.name}
-            </p>
-        )}
-
-        <label className="font-semibold block mt-6">
-          Job Description
-        </label>
-
-        <textarea
-          rows="8"
-          value={jobDescription}
-          onChange={(e)=>setJobDescription(e.target.value)}
-          className="border w-full rounded p-3 mt-2"
-          placeholder="Paste Job Description..."
-        />
-
-        <button
-          onClick={analyzeResume}
-          className="bg-blue-600 text-white w-full py-3 rounded mt-6"
-        >
-          {loading ? (
-              <span>⏳ Analyzing Resume...</span>
-          ) : (
-              <span>🚀 Analyze Resume</span>
+          {file && (
+              <p className="text-sm text-green-600 mt-2">
+                  Selected File: {file.name}
+              </p>
           )}
-        </button>
 
-        {
-          result && (
+          <label className="font-semibold block mt-6">
+            Job Description
+          </label>
 
-            <div className="mt-8 border rounded-xl p-6 bg-slate-50">
+          <textarea
+            rows="8"
+            value={jobDescription}
+            onChange={(e)=>setJobDescription(e.target.value)}
+            className="border w-full rounded p-3 mt-2"
+            placeholder="Paste Job Description..."
+          />
 
-              <h2 className="text-2xl font-bold">
-                Analysis Result
-              </h2>
+          <button
+            onClick={analyzeResume}
+            className="bg-blue-600 text-white w-full py-3 rounded mt-6"
+          >
+            {loading ? (
+                <span>⏳ Analyzing Resume...</span>
+            ) : (
+                <span>🚀 Analyze Resume</span>
+            )}
+          </button>
 
-              <div className="flex items-center gap-4 mt-3">
+          {
+            result && (
 
-                  <div className="w-20 h-20 rounded-full bg-green-500 text-white flex items-center justify-center text-2xl font-bold">
+              <div className="mt-8 border rounded-xl p-6 bg-slate-50">
 
-                      {result.matchScore}%
+                <h2 className="text-2xl font-bold">
+                  Analysis Result
+                </h2>
 
-                  </div>
+                <div className="flex items-center gap-4 mt-3">
 
-                  <div>
+                    <div className="w-20 h-20 rounded-full bg-green-500 text-white flex items-center justify-center text-2xl font-bold">
 
-                      <h3 className="text-xl font-semibold">
+                        {result.matchScore}%
 
-                          Resume Match Score
+                    </div>
 
-                      </h3>
+                    <div>
 
-                  </div>
+                        <h3 className="text-xl font-semibold">
+
+                            Resume Match Score
+
+                        </h3>
+
+                    </div>
+
+                </div>
+
+                <h3 className="mt-5 text-xl">
+                  Missing Keywords
+                </h3>
+
+                <ul className="list-disc ml-6">
+
+                  {
+                    result.missingKeywords.map((item, index) => (
+
+                      <li key={index}>
+                        {item}
+                      </li>
+
+                    ))
+                  }
+
+                </ul>
+
+                <h3 className="mt-5 text-xl">
+                  Suggestions
+                </h3>
+
+                <ul className="list-disc ml-6">
+
+                  {
+                    result.suggestions.map((item, index) => (
+
+                      <li key={index}>
+                        {item}
+                      </li>
+
+                    ))
+                  }
+
+                </ul>
 
               </div>
 
-              <h3 className="mt-5 text-xl">
-                Missing Keywords
-              </h3>
+            )
+          }
 
-              <ul className="list-disc ml-6">
-
-                {
-                  result.missingKeywords.map((item, index) => (
-
-                    <li key={index}>
-                      {item}
-                    </li>
-
-                  ))
-                }
-
-              </ul>
-
-              <h3 className="mt-5 text-xl">
-                Suggestions
-              </h3>
-
-              <ul className="list-disc ml-6">
-
-                {
-                  result.suggestions.map((item, index) => (
-
-                    <li key={index}>
-                      {item}
-                    </li>
-
-                  ))
-                }
-
-              </ul>
-
-            </div>
-
-          )
-        }
+        </div>
 
       </div>
-
-    </div>
-
+    </>
   );
 }
 
