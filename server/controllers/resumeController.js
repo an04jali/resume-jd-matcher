@@ -8,11 +8,8 @@ const uploadResume = async (req, res) => {
 
         const { jobDescription } = req.body;
 
-      
-
         const resumeText = await extractTextFromPDF(req.file.path);
-       console.log(resumeText);
-       
+
         const result = await analyzeResumeWithJD(
             resumeText,
             jobDescription

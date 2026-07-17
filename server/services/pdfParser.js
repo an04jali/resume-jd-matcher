@@ -1,15 +1,23 @@
 const fs = require("fs");
-const pdf = require("pdf-parse");
+const { PDFParse } = require("pdf-parse");
 
 const extractTextFromPDF = async (filePath) => {
+
     try {
+
         const dataBuffer = fs.readFileSync(filePath);
 
-        const data = await pdf(dataBuffer);
+        const parser = new PDFParse({ data: dataBuffer });
 
-        return data.text;
+        const result = await parser.getText();
+
+        return result.text;
+
     } catch (error) {
-        throw new Error("Failed to parse PDF");
+
+        console.error("PDF Parser Error:", error.message);
+
+        throw error;
     }
 };
 

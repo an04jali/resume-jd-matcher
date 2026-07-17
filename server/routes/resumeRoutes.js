@@ -1,5 +1,6 @@
 const express = require("express");
 const upload = require("../middleware/uploadMiddleware");
+const protect = require("../middleware/authMiddleware");
 const {
     uploadResume,
     getHistory,
@@ -8,8 +9,8 @@ const {
 const router = express.Router();
 
 // Upload Resume
-router.post("/upload", upload.single("resume"), uploadResume);
+router.post("/upload", protect, upload.single("resume"), uploadResume);
 
-router.get("/history", getHistory);
+router.get("/history", protect, getHistory);
 
 module.exports = router;
