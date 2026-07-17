@@ -141,10 +141,11 @@ GROQ_API_KEY=your_groq_api_key
 
 ## 📸 Screenshots
 
-| Login | Dashboard | Analysis Result |
+| Login | Dashboard | Analysis Result | History |
 |<img width="824" height="703" alt="image" src="https://github.com/user-attachments/assets/b9d193b6-26a3-4fad-9d53-bb59220e260b" />
- | <img width="1394" height="889" alt="image" src="https://github.com/user-attachments/assets/657301d6-a060-42e9-9942-b032f4909b79" />
+ | <img width="1894" height="924" alt="image" src="https://github.com/user-attachments/assets/f0929047-aebe-44e3-bc39-8dbcc8409184" />
  | <img width="1444" height="850" alt="image" src="https://github.com/user-attachments/assets/7ca878fa-ee09-466e-b5ff-10f0242103eb" />
+ | <img width="1879" height="909" alt="image" src="https://github.com/user-attachments/assets/4c5d2358-0972-403a-af8c-262b7a94f5d5" />
  |
 
 ---
